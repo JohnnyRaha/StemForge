@@ -1,9 +1,9 @@
 # StemForge 🎛️
 
-StemForge is a powerful, standalone macOS application that uses state-of-the-art AI to separate audio tracks into high-quality stems (vocals, drums, bass, and other). It combines **Demucs** for core source separation and **DeepFilterNet** for post-processing and vocal enhancement.
+StemForge is a powerful, standalone macOS and Windows 11 application that uses state-of-the-art AI to separate audio tracks into high-quality stems (vocals, drums, bass, and other). It combines **Demucs** for core source separation and **DeepFilterNet** for post-processing and vocal enhancement.
 
 ## Features
-- **Local AI Processing:** Runs entirely on your Mac using PyTorch (optimized for Apple Silicon / MPS).
+- **Local AI Processing:** Runs entirely on your Mac or PC using PyTorch (optimized for Apple Silicon / MPS and NVIDIA CUDA GPUs).
 - **Multiple Demucs Models:** Choose between HTDemucs (4-stem), HTDemucs 6-stem (adds guitar & piano), HTDemucs Fine-Tuned for Vocals, and MDX-Net.
 - **DeepFilterNet Integration:** Automatically enhances and cleans separated stems using DeepFilterNet.
 - **Web UI:** A clean, local web interface to manage your audio files, select models, and monitor processing.
