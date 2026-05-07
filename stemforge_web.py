@@ -1146,6 +1146,9 @@ init();
 
 # ── Entry point ───────────────────────────────────────────────────────────────
 if __name__ == "__main__":
+    import multiprocessing
+    multiprocessing.freeze_support()
+
     import socket
     PORT = 7777
     for p in range(7777, 7800):
