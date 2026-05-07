@@ -168,7 +168,7 @@ MODELS = {
         "vram_hint": 3.5,
         "max_seg": 7,   # Strict hard limit — demucs will fatal-error above 7.8 s
     },
-    "htdemucs_ft_vocals": {
+    "htdemucs_ft": {
         "name": "HTDemucs Fine-Tuned", "badge": "Vocals",
         "stems": ["drums", "bass", "vocals", "other"],
         "desc": "Optimised for clean vocal isolation.",
