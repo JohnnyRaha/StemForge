@@ -26,7 +26,7 @@ _VENV_BIN = _VENV / "Scripts" if os.name == "nt" else _VENV / "bin"
 _VENV_PY  = _VENV_BIN / ("python.exe" if os.name == "nt" else "python3")
 _VENV_PIP = _VENV_BIN / ("pip.exe" if os.name == "nt" else "pip")
 _MARKER   = _VENV / ".setup_complete"
-_PACKAGES = ["flask", "demucs", "soundfile", "deepfilterlib", "resampy"]
+_PACKAGES = ["flask", "demucs", "soundfile", "deepfilterlib", "resampy", "numpy<2"]
 
 def _bootstrap():
     """

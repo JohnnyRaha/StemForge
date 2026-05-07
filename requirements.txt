@@ -4,3 +4,4 @@ soundfile==0.13.1
 deepfilterlib==0.5.6
 resampy==0.4.3
 pyinstaller==6.20.0
+numpy<2
