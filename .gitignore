@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build_env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Application Output / Staging
+dmg_staging/
+StemForge.dmg
+app_log*.txt
+app_pid*.txt
+
+# IDEs
+.idea/
+.vscode/
+*.swp
