@@ -33,7 +33,11 @@ source build_env/bin/activate
 
 echo "Installing required dependencies for StemForge..."
 pip install --upgrade pip
-pip install flask demucs soundfile deepfilternet pyinstaller resampy
+if [ -f "requirements.txt" ]; then
+  pip install -r requirements.txt
+else
+  pip install flask demucs soundfile deepfilternet pyinstaller resampy
+fi
 
 echo "Running PyInstaller..."
 # Patch deepfilternet to avoid ModuleNotFoundError on torchaudio >= 2.1.0 during PyInstaller analysis

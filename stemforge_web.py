@@ -25,7 +25,7 @@ _VENV     = Path.home() / ".stemforge"
 _VENV_PY  = _VENV / "bin" / "python3"
 _VENV_PIP = _VENV / "bin" / "pip"
 _MARKER   = _VENV / ".setup_complete"
-_PACKAGES = ["flask", "demucs", "soundfile", "resampy"]
+_PACKAGES = ["flask", "demucs", "soundfile", "deepfilterlib", "resampy"]
 
 def _bootstrap():
     """
@@ -65,9 +65,14 @@ def _bootstrap():
             [str(_VENV_PIP), "install", "--quiet", "--upgrade", "pip"],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         )
-        subprocess.check_call(
-            [str(_VENV_PIP), "install", "--quiet", *_PACKAGES],
-        )
+        if (Path(__file__).parent / "requirements.txt").exists():
+            subprocess.check_call(
+                [str(_VENV_PIP), "install", "--quiet", "-r", "requirements.txt"],
+            )
+        else:
+            subprocess.check_call(
+                [str(_VENV_PIP), "install", "--quiet", *_PACKAGES],
+            )
         _MARKER.touch()
         _notify("StemForge · Setup complete — launching…")
 
