@@ -12,10 +12,18 @@ StemForge is a powerful, standalone macOS application that uses state-of-the-art
 
 You do not need to install Python or set up any environments to use StemForge!
 
+### macOS
 1. Go to the [Releases](../../releases) page.
 2. Download the latest `StemForge.dmg` file.
 3. Open the `.dmg` and drag the `StemForge.app` into your `/Applications` folder.
 4. **Important:** Because this is an open-source app without a paid Apple developer signature, macOS Gatekeeper may block it on first run. To bypass this, **Right-click** (or Control-click) `StemForge.app` in your Applications folder and select **Open**.
+
+### Windows 11
+1. Go to the [Releases](../../releases) page.
+2. Download the latest `StemForge-Windows.zip` file.
+3. Extract the ZIP file to a folder of your choice (e.g., Desktop or Documents).
+4. Run `StemForge.exe` from inside the extracted folder.
+   *(Note: Microsoft Defender SmartScreen might warn you the first time since the app is unsigned. Click "More info" and then "Run anyway".)*
 
 ## Development & Building from Source
 
@@ -38,19 +46,20 @@ If you want to modify StemForge or build it yourself:
    python3.11 stemforge_web.py
    ```
 
-### Building the macOS App
-To compile StemForge into a standalone `.app` and package it into a `.dmg`:
+### Building the App (Executables)
+To compile StemForge into a standalone application, you can use the provided build scripts.
 
+#### macOS
 ```bash
 bash build_mac.sh
 ```
+This will compile the app and package it into a `.dmg` file ready for distribution.
 
-This script will:
-- Set up a clean `build_env`.
-- Install all dependencies from `requirements.txt`.
-- Apply necessary patches (like Torchaudio backend mocks for DeepFilterNet compatibility).
-- Use **PyInstaller** to compile the app.
-- Package everything into a `.dmg` file ready for distribution.
+#### Windows
+```powershell
+.\build_win.ps1
+```
+This will compile the app and package it into a `StemForge-Windows.zip` archive.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

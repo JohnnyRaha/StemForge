@@ -22,8 +22,9 @@ if getattr(sys, 'frozen', False) and len(sys.argv) >= 3 and sys.argv[1] == '--in
     sys.exit(0)
 
 _VENV     = Path.home() / ".stemforge"
-_VENV_PY  = _VENV / "bin" / "python3"
-_VENV_PIP = _VENV / "bin" / "pip"
+_VENV_BIN = _VENV / "Scripts" if os.name == "nt" else _VENV / "bin"
+_VENV_PY  = _VENV_BIN / ("python.exe" if os.name == "nt" else "python3")
+_VENV_PIP = _VENV_BIN / ("pip.exe" if os.name == "nt" else "pip")
 _MARKER   = _VENV / ".setup_complete"
 _PACKAGES = ["flask", "demucs", "soundfile", "deepfilterlib", "resampy"]
 
@@ -48,7 +49,12 @@ def _bootstrap():
         # Find Python 3.11
         import shutil
         py_exe = sys.executable
-        for p in ["python3.11", "/opt/homebrew/bin/python3.11", "/opt/homebrew/opt/python@3.11/bin/python3.11", "/usr/local/bin/python3.11"]:
+        _py_candidates = [sys.executable, "python", "python3"] if os.name == "nt" else [
+            "python3.11", "/opt/homebrew/bin/python3.11", 
+            "/opt/homebrew/opt/python@3.11/bin/python3.11", "/usr/local/bin/python3.11",
+            "python3", sys.executable
+        ]
+        for p in _py_candidates:
             if shutil.which(p):
                 py_exe = shutil.which(p)
                 break
