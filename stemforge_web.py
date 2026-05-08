@@ -1151,11 +1151,15 @@ if __name__ == "__main__":
 
     import socket
     PORT = 7777
-    for p in range(7777, 7800):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            if s.connect_ex(('127.0.0.1', p)) != 0:
+    for p in range(7777, 7850):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                s.bind(('127.0.0.1', p))
                 PORT = p
                 break
+        except socket.error:
+            continue
 
     print(f"""
   ⬡  StemForge Web  ·  RTX 3050 Optimised
