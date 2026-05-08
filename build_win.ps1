@@ -35,12 +35,11 @@ Write-Host "Running PyInstaller..."
   --hidden-import="demucs" `
   --hidden-import="demucs.__main__" `
   --collect-submodules="demucs" `
-  --hidden-import="df" `
-  --collect-submodules="df" `
+  --collect-all="antlr4" `
+  --collect-all="df" `
   --hidden-import="soundfile" `
   --hidden-import="resampy" `
   --collect-data="demucs" `
-  --collect-data="df" `
   stemforge_web.py
 
 # Clean up build artifacts
