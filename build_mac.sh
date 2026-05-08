@@ -57,6 +57,7 @@ pyinstaller --clean --noconfirm \
   --hidden-import="demucs" \
   --hidden-import="demucs.__main__" \
   --collect-submodules="demucs" \
+  --collect-all="antlr4" \
   --collect-all="df" \
   --hidden-import="soundfile" \
   --hidden-import="resampy" \
