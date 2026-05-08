@@ -109,6 +109,16 @@ from flask import Flask, Response, request, jsonify, stream_with_context
 
 
 # ── GPU Detection ─────────────────────────────────────────────────────────────
+# ── DeepFilterNet Git Patch ──────────────────────────────────────────────────
+try:
+    import df.utils
+    def patched_get_git_root(): return None
+    def patched_get_commit_hash(): return None
+    df.utils.get_git_root = patched_get_git_root
+    df.utils.get_commit_hash = patched_get_commit_hash
+except ImportError:
+    pass
+
 def detect_device():
     try:
         import torch
